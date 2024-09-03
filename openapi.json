@@ -25,6 +25,49 @@
     }
   ],
   "paths": {
+    "/api/packages": {
+      "get": {
+        "tags": ["API Revendas"],
+        "summary": "Get Packages",
+        "parameters": [
+          {
+            "name": "api_key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "Reseller API"
+          },
+          {
+            "name": "username",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "Reseller Username"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful response"
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "403": {
+            "description": "No Authentication"
+          },
+          "405": {
+            "description": "Invalid request method"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/api/test": {
       "post": {
         "tags": ["API Revendas"],
@@ -43,6 +86,140 @@
                   "phone": "+5500123456789",
                   "email": "username@exemple.net",
                   "notes": "test user"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "api_key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "Reseller API"
+          },
+          {
+            "name": "username",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "Reseller Username"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful response"
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "403": {
+            "description": "No Authentication"
+          },
+          "405": {
+            "description": "Invalid request method"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/lines": {
+      "post": {
+        "tags": ["API Revendas"],
+        "summary": "Create A New Client",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "username": "",
+                  "password": "",
+                  "package_id": 3,
+                  "duration": 4,
+                  "type": "iptv",
+                  "phone": "+5500123456789",
+                  "email": "username@exemple.net",
+                  "notes": "test user"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "api_key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "Reseller API"
+          },
+          {
+            "name": "username",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "Reseller Username"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful response"
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "403": {
+            "description": "No Authentication"
+          },
+          "405": {
+            "description": "Invalid request method"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/reseller": {
+      "post": {
+        "tags": ["API Revendas"],
+        "summary": "Create A New Reseller",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "username": "",
+                  "password": "",
+                  "member_group": 3,
+                  "duration": 4,
+                  "phone": "+5500123456789",
+                  "email": "username@exemple.net",
+                  "telegram": "@username",
+                  "notes": "test user",
+                  "permissions": {
+                    "iptv": "enabled",
+                    "code": "enabled",
+                    "binstream": "enabled"
+                  },
+                  "price": {
+                    "iptv": 4,
+                    "code": 5,
+                    "binstream": 6
+                  }
                 }
               }
             }
